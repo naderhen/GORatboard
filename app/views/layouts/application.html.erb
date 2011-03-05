@@ -74,34 +74,11 @@
 							
 						</ul>
 					</li>
-					<li><%= link_to "Incoming Calendar", calendar_url%></li>
-					<!-- <li>
-						<%= link_to "Announcements", announcements_path%>
-					</li>-->
-					<li>
-						<%= link_to "Customers", customers_path%>
-					</li>
 					<% end %>
-					
-					
-					<% if current_user && (current_user.admin? || current_user.shipper?) %>
-					<li><%= link_to "Market Reports", reports_path%></li>
-					<% end %>
-					
 					
 					<% if current_user && current_user.admin? %>
 					<li>
 						<%= link_to "Users", users_path%>
-						<ul>
-							<li>
-								<%= link_to "Shippers", users_path%>
-							</li>
-							
-							<li>
-								<%= link_to "Manage Roles", roles_path%>
-							</li>
-							
-						</ul>
 					</li>
 					
 					<li>
