@@ -1,1 +1,1 @@
-server 'bbratboard', :app, :web, :db, :primary => true
+server 'goratboard', :app, :web, :db, :primary => true
