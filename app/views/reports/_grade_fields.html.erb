@@ -1,0 +1,29 @@
+<tr class="fields">  
+  
+  <td><%= f.text_field :name, :size=>"10" %></td>
+
+
+  <td><%= f.text_field :price, :size=>"10"  %></td>
+
+
+  <td><%= f.text_field :description, :size=>"20"  %></td>
+
+
+  <td>
+	<div id="trend_container">
+		
+		<span id="trend_up" class="trend_selector" title="1">UP</span>
+		<span id="trend_static" class="trend_selector" title="0">STATIC</span>
+		<span id="trend_down" class="trend_selector" title="-1">DOWN</span>
+	</div>
+	</td>
+
+<td class="to_be_hidden"><%= f.text_field :trend, :size=>"10", :class=>"amount"  %></td>
+  <td><%= link_to_remove_fields "remove", f %></td>  
+</tr>
+
+
+
+
+
+

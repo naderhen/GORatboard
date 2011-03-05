@@ -1,0 +1,31 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table class="stylized">
+  <tr>
+    <th><%= sortable "name" %></th>
+	<th><%= sortable "phone" %></th>
+	<th><%= sortable "client_type" %></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= link_to customer.name, customer %></td>
+	<td><%= customer.phone %></td>
+	<% if customer.client_type == "Customer"%>
+		<td><p class="client_type client_customer"><%= customer.client_type %></p></td>
+	<% elsif customer.client_type == "Inactive"%>
+		<td><p class="client_type client_inactive"><%= customer.client_type %></p></td>
+	<% elsif customer.client_type == "Credit Hold"%>
+		<td><p class="client_type client_credit_hold"><%= customer.client_type %></p></td>
+	<% else %>
+		<td><%=customer.client_type%></td>
+	<% end %>
+	
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @customers %>

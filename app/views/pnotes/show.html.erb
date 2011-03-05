@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Preport:</b>
+  <%= @pnote.preport_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @pnote.user_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @pnote.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_pnote_path(@pnote) %> |
+<%= link_to 'Back', pnotes_path %>

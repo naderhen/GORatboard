@@ -1,0 +1,88 @@
+@media print{
+	#report_subline h1{
+		color: #f00;
+		font: bold 28px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+		padding-top: 0;
+	}
+	
+	#report_subline h1 span{
+		font-size: 12px;
+		margin-left: 124px;
+		font-variant: normal;
+		letter-spacing: 0;
+		word-spacing: 1px;
+	}
+	
+	.clearfix{clear:both;}
+
+	.trend_selector:hover{cursor:pointer;}
+
+
+
+	/*    REPORT CSS  */
+	#report_user_id{width:250px;}
+	.report_date_span label{margin-left:37px;}
+	#report_container{border:1px solid black;background-color:white;position:relative;margin:auto;width:850px;padding:25px;}
+	#report_header{}
+	#report_header img{float:left;}
+	#report_links{position:relative;float:right;background-image:url('../images/report_links_bg.png');width:320px;height:117px;}
+	#report_links p.phone_cell{position:absolute;left:37px;top:0	px;
+		color: #006db5;
+		font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+	#report_links p.phone_office{position:absolute;left:177px;top:0px;color: #006db5;
+		font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;}
+	#report_links a{
+		color: #006db5;
+		font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+	#report_links a.email_link{position:absolute;top:45px;left:37px;}
+	#report_links a.site_link{position:absolute;top:77px;left:37px;}
+
+	#report_content{}
+
+	#checkbox_container{width:100%;height:100px;}
+	.user_checkbox{float:left;width:200px;margin-bottom:20px;}
+
+
+
+
+
+	#report_notes{border: 1px solid #006da7;padding: 0 10px 10px;}
+	#report_notes p{
+		line-height: 21px;
+		font-size: 12px;
+		color: #006da7;
+	}
+
+	.category_block{float:left;margin-bottom:30px;margin-top:15px;}
+	.category_block:nth-child(odd){margin-right:40px;}
+	.category_block h2{
+		font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+		color: #006da7;
+		line-height:10px;
+	}
+
+	.report_grade_table{border: 2px solid #006da7;border-top:20px solid #0060b0;width:405px;}
+	.report_grade_table thead{background-color: #e1e8ef !important;}
+	.report_grade_table thead tr td{border-bottom:1px solid #e1e8ef;height:30px;vertical-align:middle;text-align:center;border-right:1px solid #0060b0;
+		color: #4b87b8;
+	}
+	.report_grade_table tbody td{height:40px;vertical-align:middle;text-align:center;border-right:1px solid #0060b0;border-bottom:1px solid #dbe5f4;
+		color: #006da7;
+		font: bold 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+	.report_grade_table tbody td.description{
+		font: normal 13px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+
+
+	.trend_selector{color:gray;margin:0px 5px;}
+
+	#trend_up.current{color:green;font-weight:bold;}
+	#trend_down.current{color:red;font-weight:bold;}
+	#trend_static.current{color:black;font-weight:bold;}
+	
+	
+	
+}

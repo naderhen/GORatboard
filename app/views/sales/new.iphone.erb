@@ -1,0 +1,36 @@
+<div id="new_sale">
+<div class="toolbar">
+	<h1>Sale: <%= @ratgrade.name%></h1> 
+	<a href="#" class="back">Back</a>
+	
+</div>
+
+<%= form_for [@ratgrade,@sale] do |form| %>  
+
+<ul class="rounded">
+	
+	<li><%= collection_select(:sale, :customer_id, Customer.all, :id, :name)%></li>
+	<li><%= form.text_field :amount, :placeholder=>"Amount:" %></li>
+		
+	<li><%= form.text_field :price, :placeholder=>"Price:" %></li>
+	
+	<li><%= form.text_field :fob, :placeholder=>"FOB:" %></li>
+	<li><%= form.text_field :size_pref, :placeholder=>"Size Pref:" %></li>
+	<li><%= form.text_field :cotefr, :placeholder=>"C/T/F:" %></li>
+	
+	<li><%= form.text_area :notes, :placeholder=>"Notes:" %></li>
+	
+	
+	
+	<%= form.hidden_field :user_id, :value => current_user.id %> 
+	  
+	<%= form.hidden_field :warehouse_id, :value => @ratgrade.warehouse.id %> 
+	<%= form.hidden_field :board_id, :value => @ratgrade.warehouse.board.id %> 
+	<%= form.hidden_field :allocated, :value => "false" %>
+
+</ul>
+<a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Submit</a>
+<% end %>
+
+
+</div>

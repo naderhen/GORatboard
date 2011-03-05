@@ -1,0 +1,29 @@
+
+
+	<% if @customer.client_type == "Customer"%>
+		<p class="client_type client_customer"><%= @customer.client_type %></p>
+	<% elsif @customer.client_type == "Inactive"%>
+		<p class="client_type client_inactive"><%= @customer.client_type %></p>
+	<% elsif @customer.client_type == "Credit Hold"%>
+		<p class="client_type client_credit_hold"><%= @customer.client_type %></p>
+	<% end %>
+	
+<h3>Phone:</h3><p><%= @customer.phone %></p>
+	
+<h3>Contact:</h3><p><%= @customer.contact %></p>
+<h3>Address:</h3>	<p><%= @customer.address1 %></p>
+	<p><%= @customer.address2 %></p>
+
+	<p><%= @customer.city %>,
+	<%= @customer.state %>
+	<%= @customer.zip %>
+	<%= @customer.country %> </p>
+
+
+	<h3>Email:</h3> <p><%= @customer.email %></p>
+
+	<h3>Fax:</h3> <p><%= @customer.fax %></p>
+	
+	
+
+	<h3>Euler Rating:</h3><p> <%= @customer.euler %></p

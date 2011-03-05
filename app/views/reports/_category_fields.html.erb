@@ -1,0 +1,37 @@
+<div class="fields">  
+	<p>
+	  <%= f.label :name, "Category" %><br />  
+	  <%= f.text_field :name, :class=>"half title"%>
+	  <%= link_to_remove_fields "remove", f%><br />  
+	</p>
+
+
+
+
+		<table class="stylized grades_table">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Price</td>
+					<td>Description</td>
+					<td>Trend</td>
+					<td>&nbsp;</td>
+				</tr>
+			</thead>
+			<tbody>
+			<%= f.fields_for :grades do |builder| %>  
+						<%= render 'grade_fields', :f => builder %>  
+			<% end %>
+			<tr class="bottom_row">
+
+					<td><%= link_to_add_rows "Add Grade", f, :grades %></td>
+
+
+
+
+			</tr>
+			</tbody>
+			
+		</table>
+</div> 
+

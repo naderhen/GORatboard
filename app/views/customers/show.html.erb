@@ -1,0 +1,62 @@
+<%= content_for :headline do %>
+<h1>Client Card &rarr; <span>Overview</span></h1>
+<% end %>
+
+<div class="client_card">
+	<h1 class="client_name"><%= @customer.name %></h1>
+	
+
+
+</div><!-- client_card -->
+
+<% content_for(:shortcut_title) do %>
+	Contact Information
+<% end %>
+
+<% content_for(:shortcut_box) do %>
+	<%= render 'customers/contact_info'%>
+<% end %>
+
+
+
+
+
+
+	<fieldset>
+		<legend>Order History</legend>
+	</fieldset>
+	<div id="customer_order_history">
+		<%= render "customers/order_history"%>
+	</div><!-- customer_order_history -->
+	<br />
+	<br />
+	<br />
+	
+	
+	
+	<fieldset>
+		<legend>Call History</legend>
+	</fieldset>	
+	<div id="customer_call_history">
+		<%= render "customers/call_history"%>
+	</div><!-- customer_call_history -->
+	<br />
+	<br />
+	<br />
+	
+	
+	
+	
+	<fieldset>
+		<legend>Attachments</legend>
+	</fieldset>
+	<div id="customer_attachments">
+		<%= render "customers/customer_attachments"%>
+	</div><!-- customer_attachments -->
+
+
+
+
+
+
+

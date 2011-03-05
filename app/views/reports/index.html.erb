@@ -1,0 +1,36 @@
+<%= content_for :headline do %>
+<h1>Market Reports &rarr; <span>List</span></h1>
+<% end %>
+
+<table class="stylized">
+  <tr>
+    <th>Report</th>
+	<th>Sent To</th>
+	<th>Actions</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+  </tr>
+
+<% @reports.each do |report| %>
+  <tr>
+    <td><%=h report.report_date.to_s(:long) %></td>
+	<td><%=h report.users.collect{|u|u.full_name}.join(', ')%></td>
+    <td><%= link_to 'Show', report %></td>
+	<% if current_user.admin? %>
+    <td><%= link_to 'Edit', edit_report_path(report) %></td>
+    <td><%= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete %></td>
+ 	<td><%= link_to 'Distribute', distribute_report_path(report), :confirm => 'Are you sure?' %></td>
+	<% end %>
+	<td><%= link_to 'Download (PDF)', report_path(report, :format=>"pdf") %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Report', new_report_path %>
+
+
+

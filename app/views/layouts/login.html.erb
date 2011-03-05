@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Reports: <%= controller.action_name %></title>
+	<%= javascript_include_tag 'jquery-1.4.2','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.nyroModal.pack','administry' %>  
+  	<%= stylesheet_link_tag 'scaffold','redmond/jquery-ui-1.8.2.custom.css','style','custom' %>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper-login">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title"><%= image_tag "logo.png", :size=>"339x44"%><!--<span>Administry</span> demo--></div>
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					<li class="current"><%= link_to "Login", login_path %></li>
+					<li class=""><%= link_to "Register", register_path%></li>
+				</ul>
+			</nav>
+			<!-- End of Main navigation -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper-login"></div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper-login">
+				<!-- Login form -->
+				<section class="full">	
+					<% if flash[:notice] %>
+						<div class="flash box box-success">
+							<%= flash[:notice] %>	
+						</div>
+					<% end %>
+									
+					<%= yield %>
+					
+				</section>
+				<!-- End of login form -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<footer id="bottom">
+		<div class="wrapper-login">
+			<p>Copyright &copy; 2010 <b><a href="http://www.naderhendawi.com" title="">Nader Hendawi</a></b> | Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a></p>
+		</div>
+	</footer>
+	<!-- End of Page footer -->
+
+</body>
+</html>

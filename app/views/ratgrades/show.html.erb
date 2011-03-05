@@ -1,0 +1,75 @@
+<%= content_for :headline do %>
+<h1>RATGrade Sales Summary &rarr; <span><%= @ratgrade.name%> out of <%= @ratgrade.warehouse.name%></span></h1>
+
+<% end %>
+
+
+<div id="orders_chart" style="width: 828px; height: 300px;"></div> 
+
+<script type="text/javascript" charset="utf-8">  
+  $(function () {  
+  new Highcharts.Chart({  
+    chart: { 
+		renderTo: 'orders_chart',
+		defaultSeriesType: 'spline' 
+		},  
+    title: { text: 'Orders by Time' },  
+    xAxis: { 
+			type: 'datetime'
+			}, 
+    yAxis: {  
+      title: { text: 'Dollars' }  
+    },  
+
+	
+	series: [{
+	         name: 'Order Price',
+	         data: [
+			<% @sales.each do |sale| %> 
+				[Date.UTC(<%= sale.created_at.strftime('%Y').to_i%>, <%= sale.created_at.strftime('%m').to_i-1 %>, <%= sale.created_at.strftime('%d').to_i%>,<%= sale.created_at.strftime('%H').to_i %>,<%= sale.created_at.strftime('%M').to_i%> ), <%= sale.price %>],
+			<% end %>
+			]
+	      }, {
+	         name: 'Average Price',
+	         data: [
+			<% @sales.each do |sale| %> 
+			[Date.UTC(<%= sale.created_at.strftime('%Y').to_i%>, <%= sale.created_at.strftime('%m').to_i-1 %>, <%= sale.created_at.strftime('%d').to_i%>,<%= sale.created_at.strftime('%H').to_i %>,<%= sale.created_at.strftime('%M').to_i%> ), <%= @sales.average(:price) %>],
+				
+			<% end %>
+			]
+	      }]
+	
+
+  });  
+});
+</script>
+
+
+
+
+<% @sales.group_by(&:user).each do |user,sales| %>
+	<h2><%=user.full_name %></h2>
+	<table class="stylized">
+  	<tr>
+	    <th>Amount</th>
+		<th>Price</th>
+		<th>Time</th>
+	    <th>Customer</th>
+		<th>Actions</th>
+		<th>&nbsp; </th>
+		<th>&nbsp; </th>
+	 </tr>
+
+
+  	<% sales.each do |sale| %>
+	<tr>
+    	<td><%=h sale.amount %></td>
+		<td><%=h number_to_currency sale.price %></td>
+		<td><%= sale.created_at.strftime('%r')%></td>
+	    <td><%=h sale.customer.name %></td>
+	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+	<% end%>
+	</table>
+<% end %>

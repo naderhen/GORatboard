@@ -1,0 +1,29 @@
+<tr class="ratgrade_row">
+    <td><%= link_to ratgrade.name, ratgrade %>
+		<br />
+			(<%= ratgrade.availdate.to_s(:short) if ratgrade.availdate %>)
+		<br />
+	</td>
+
+	<%if ratgrade.availableamt>0 %>	
+  		<td class="availamt"><%= number_with_precision(ratgrade.availableamt,:precision=> 0) %></td>
+	<% else %>
+		<td class="negavail"><%= number_with_precision(ratgrade.availableamt,:precision=> 0) %></td>
+	<% end %>
+
+	<td><%=h ratgrade.sold %></td>
+	<td><%=h ratgrade.total %></td>
+	<% @salesreps.each do |salesrep|%>
+		<td class="clickable" ><%= number_with_precision(ratgrade.sales.sum('amount',:conditions=>{:user_id=>salesrep.id}),:precision=> 0)%></td>
+	<%end%>
+	
+	<td>
+		<%= number_to_currency(ratgrade.average_price)%>
+	</td>
+
+	
+	
+	<td class="last">
+		<a href="" class="sale_handle btn" data-ratgrade_id="<%=ratgrade.id%>" data-ratgrade_name="<%= ratgrade.name %>" data-warehouse_id="<%= ratgrade.warehouse.id %>" data-warehouse_name="<%= ratgrade.warehouse.name %>" data-board_id="<%= @ratboard.id %>" ><span class="icon icon-add"> </span></a>
+	</td>
+</tr>

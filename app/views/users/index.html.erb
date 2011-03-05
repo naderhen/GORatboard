@@ -1,0 +1,35 @@
+<%= content_for :headline do %>
+<h1>Users &rarr; <span>List</span></h1>
+<% end %>
+<table class="full stylized">
+  <tr>
+    <th>Login</th>
+	<% for role in Role.all %>  
+	    <th>
+	      <%= role.name %>  
+	    </th>  
+	<% end %>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.full_name %></td>
+  	<% for role in Role.all %>  
+	    <td>  
+	      	<% if user.roles.include?(role)%>
+				<%= image_tag('valid.gif')%>
+			<% else %>
+				<%= image_tag('delete.png')%>
+			<%end %>
+	    </td>  
+	<% end %>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path, :class=>"btn" %>

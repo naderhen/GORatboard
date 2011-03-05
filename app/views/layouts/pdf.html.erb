@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Reports: <%= controller.action_name %></title>
+
+  	<%= stylesheet_link_tag 'scaffold','ui-lightness/jquery-ui-1.8.2.custom.css','style','custom','print', :media=>'all' %>
+</head>
+<body>
+	<div id="report_container">
+		<div id="sent_to">
+		</div>
+		<div id="report_header">
+			<%= image_tag("report_logo.png")%>
+			<div id="report_links">
+				<p class="phone_cell">(516) 359-3853</p>
+				<p class="phone_office">(516) 390-4362</p>
+				<a class="email_link" href="mailto:meri@bigbueocean.net">meri@bigblueocean.net</a>
+				<a class="site_link" href="http://www.bigblueocean.net" target="_blank">bigblueocean.net</a>
+			</div><!-- report_links -->
+			<div class="clearfix"></div>
+		</div><!--report_header -->
+		
+		<div id="report_content">
+			<%= yield %>
+		</div><!-- report_content -->
+		
+	</div><!-- report_container -->
+	
+	
+	
+	
+</body>
+</html>

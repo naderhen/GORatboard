@@ -1,0 +1,85 @@
+<h1>Listing sales for <%= @board.board_date.to_s(:long)%></h1>
+
+
+
+
+<a id="print_sales_button" href="<%=print_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print All Invoices</a>
+
+<% if @unprinted > 0%>
+<a id="print_unprinted_sales_button" href="<%=print_unprinted_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("error.png", :class=>"icon")%>Print Unprinted Invoices (<%= @unprinted %>)</a>
+<% end %>
+
+
+
+
+<div class="clearfix"></div>
+
+<% @sales.group_by(&:user).each do |user,sales| %>
+	<h2><%=user.full_name %></h2>
+	 <a id="print_user_sales_button" href="<%=print_user_sales_board_path(:user_id=>user.id, :format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print Invoices (<%=sales.size%>)</a>
+	
+	
+	
+	
+	
+	<table class="stylized">
+  	<tr>
+	    <th>Amount</th>
+	    <th>Grade</th>
+	    <th>Time</th>
+	    <th>Customer</th>
+		<th>Dates</th>
+	    <th>FOB</th>
+		<th>Price</th>
+		
+		<th>Actions</th>
+		<th>&nbsp; </th>
+		<th>&nbsp; </th>
+
+		<th>Printed?</th>
+	 </tr>
+
+
+  	<% sales.each do |sale| %>
+	<tr>
+    	<td><%=h sale.amount if sale.amount %></td>
+	    <td><%=h sale.ratgrade.name if sale.ratgrade.name %></td>
+	    <td><%= sale.created_at.strftime('%I:%M %p') if sale.created_at %> </td>
+	    <td><%=h sale.customer.name if sale.customer.name %></td>
+		
+		
+		<td><%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %> - <%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %></td>
+
+		
+		
+	    <td><%=h sale.fob if sale.fob %></td>
+		<td>
+			<%= sale.price if sale.price%>
+		</td>
+		
+
+		<td><%= link_to 'PDF', sale_path(sale, :format=>"pdf")%></td>
+	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
+
+		
+		<% if sale.printed? %>
+			<td>
+				<%= link_to image_tag("accept.png"), sale_path(sale, :format=>"pdf")%>
+			</td>
+		<% else %>
+			<td>
+				<%= link_to image_tag("error.png"), sale_path(sale, :format=>"pdf")%>
+			</td>
+		
+		<% end %>
+  </tr>
+	<% end%>
+	</table>
+<% end %>
+
+
+<br />
+
+<%= link_to 'Back To Dashboard', root_url %>
+

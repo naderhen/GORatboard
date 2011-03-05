@@ -1,0 +1,23 @@
+<h1>Listing preports</h1>
+
+<table>
+  <tr>
+    <th>Board</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @preports.each do |preport| %>
+  <tr>
+    <td><%= preport.board_id %></td>
+    <td><%= link_to 'Show', preport %></td>
+    <td><%= link_to 'Edit', edit_preport_path(preport) %></td>
+    <td><%= link_to 'Destroy', preport, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Preport', new_preport_path %>

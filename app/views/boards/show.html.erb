@@ -1,0 +1,71 @@
+<%= content_for :headline do %>
+<h1>RATboard For <%= @board.board_date.to_s(:long)%> &rarr; <span><%= link_to"Sales Summary", rat_sales_board_path(@board), :class=>"btn btn-green"%></span></h1>
+
+<% end %>
+
+
+	
+	<% for warehouse in @board.warehouses %>
+		<div id="<%=  warehouse.id%>">
+			<h2><%=warehouse.name %></h2>
+			<table class="stylized">
+			<thead>
+			  <tr>
+			    <th>Grade</th>
+				<th>Available</th>
+				<th>Sold</th>			
+			    <th>Inventory</th>
+				<% @salesreps.each do |salesrep|%>
+					<th><%=h salesrep.login.humanize%>
+				<%end%>
+				<th>Average Price</th>
+			  </tr>
+			</thead>
+			<tbody>
+			<% for ratgrade in warehouse.ratgrades %>
+			  <tr>
+			    <td><%= link_to ratgrade.name,{:controller=>"ratgrades", :action=>'show', :id=>ratgrade.id} %>
+					<br />
+						(<%=h ratgrade.availdate.to_s(:short) if ratgrade.availdate %>)
+					<br />
+				</td>
+
+				<%if ratgrade.availableamt>0 %>	
+			  	<td class="availamt"><%=h ratgrade.availableamt %></td>
+				<% else %>
+				<td class="negavail"><%=h ratgrade.availableamt %></td>
+				<% end %>
+
+				<td><%=h ratgrade.sold %></td>
+				<td><%=h ratgrade.total %></td>
+				<% @salesreps.each do |salesrep|%>
+					<td class="clickable" ><%=h ratgrade.sales.sum('amount',:conditions=>{:user_id=>salesrep.id})%></td>
+				<%end%>
+				<td>
+					<%= ratgrade.average_price%>
+				</td>
+				<td class="saleimg"><%= link_to image_tag("add.png", :border=>0, :width=>20, :height=>20), new_ratgrade_sale_path(ratgrade) %></td>
+			  </tr>
+			<% end %>
+			
+			<tr class="footer">
+				<td>Totals:</td>
+				<td><%= warehouse.available%></td>
+				<td><%= warehouse.sold%></td>
+				<td><%= warehouse.available + warehouse.sold%></td>
+				<% @salesreps.each do |salesrep| %>
+					<td><%= warehouse.sales.find(:all, :conditions => ['user_id = ?', salesrep.id]).sum(&:amount) %></td>
+				<%end%>
+			</tr>
+			
+			</tbody>
+			</table>
+
+			<br />
+
+		</div>
+	
+	
+	<% end %>
+	
+	

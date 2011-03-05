@@ -1,0 +1,8 @@
+<p>Hi <%= @user.full_name%>,</p>
+<p>A new Market Report has been generated for you. If you'd like to have a look please click the following link</p>
+
+
+<p>Link to Report: <%= report_url(@report, :user_credentials=>@user.single_access_token)%></p>
+
+<p>Thanks!</p>
+<h2>Big Blue Ocean LLC</p>

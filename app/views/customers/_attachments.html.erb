@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Date</th>
+  </tr>
+
+<% for attachment in @customer.attachments %>
+  <tr>
+    <td><%= link_to attachment.attachment_type, attachment.attachment.url %></td>
+    <td><%= attachment.attachment_updated_at.strftime("%m/%d") %></td>
+    <td><%= link_to 'Edit', edit_customer_attachment_path(@customer, attachment) %></td>
+    <td><%= link_to 'Destroy', [@customer, attachment], :confirm => 'Are you sure?', :method => :delete %></td>
+	
+  </tr>
+<% end %>
+</table>
+
+
+
+<%= link_to 'New Attachment', new_customer_attachment_path(@customer) %>

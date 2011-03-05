@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  preport_id: 1
+  user_id: 1
+  aplushigh: 1.5
+  apluslow: 1.5
+  ahigh: 1.5
+  alow: 1.5
+  aminushigh: 1.5
+  aminuslow: 1.5
+  bplusplushigh: 1.5
+  bpluspluslow: 1.5
+  twohhigh: 1.5
+  twohlow: 1.5
+  bhigh: 1.5
+  blow: 1.5
+
+two:
+  preport_id: 1
+  user_id: 1
+  aplushigh: 1.5
+  apluslow: 1.5
+  ahigh: 1.5
+  alow: 1.5
+  aminushigh: 1.5
+  aminuslow: 1.5
+  bplusplushigh: 1.5
+  bpluspluslow: 1.5
+  twohhigh: 1.5
+  twohlow: 1.5
+  bhigh: 1.5
+  blow: 1.5

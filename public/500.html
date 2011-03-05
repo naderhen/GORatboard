@@ -1,0 +1,184 @@
+
+<!DOCTYPE html> 
+ 
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
+  <title>Big Blue Ocean RATBoard v3</title> 
+ 
+<link href="/stylesheets/redmond/jquery-ui-1.8.2.custom.css?1291819536" media="all" rel="stylesheet" type="text/css" /> 
+<link href="/stylesheets/style.css?1294160717" media="all" rel="stylesheet" type="text/css" /> 
+<link href="/stylesheets/custom.css?1294244900" media="all" rel="stylesheet" type="text/css" /> 
+<link href="/stylesheets/sales_report.css?1291819536" media="all" rel="stylesheet" type="text/css" /> 
+<link href="/stylesheets/colorbox.css?1291819536" media="all" rel="stylesheet" type="text/css" /> 
+<link href="/stylesheets/event_calendar.css?1295381365" media="all" rel="stylesheet" type="text/css" /> 
+ 
+	<meta name="csrf-param" content="authenticity_token"/> 
+<meta name="csrf-token" content="Kpyrg+aWrki5zuk1sH38YshjniqvrkBKGOW/hx7jyZE="/> 
+	<script src="http://js.pusherapp.com/1.6/pusher.min.js" type="text/javascript"></script> 
+	
+	
+	<script type="text/javascript"> 
+	    var pusher_key = "9eac181c2fb501c66afa";
+	    var pusher_channel = "BBRatboard-development";
+	  </script> 
+	
+	
+	
+	<script src="/javascripts/jquery-1.4.2.js?1291819536" type="text/javascript"></script> 
+</head> 
+<body> 
+	<!-- Header --> 
+	<header id="top"> 
+		<div class="wrapper"> 
+			<!-- Title/Logo - can use text instead of image --> 
+			<div id="title">&nbsp;<!--<span>Big Blue Ocean RATBoard</span>--></div> 
+			<!-- Top navigation --> 
+			<div id="topnav"> 
+				<a href="#"><img alt="User_32" class="avatar" height="16" src="/images/user_32.png?1291819536" width="16" /></a> 
+				
+				Logged in as <b>naderhen</b><span>|
+					
+ 
+				
+				
+				</span> <a href="/users/1">Settings</a> 
+				<span>|</span> 
+				
+				
+				
+				<a href="/logout">Logout</a><br /> 
+				
+				
+					<small>You are an <a href="#" class="high"> Admin!</a></small><br /> 
+					<small>Your Single Access Token is: <a href="#" class="high"> 12:41 PM </a></small> 
+					
+			</div> 
+			<!-- End of Top navigation --> 
+			<!-- Main navigation --> 
+			<nav id="menu"> 
+				<ul class="sf-menu"> 
+					
+					<li><a href="http://localhost:3000/">Today's RATBoard</a></li> 
+					<li> 
+						<a href="/boards">RAT History</a> 
+						<ul> 
+							<li> 
+								<a href="http://localhost:3000/">Today's RATBoard</a> 
+							</li> 
+							<li> 
+								<a href="/boards">History</a> 
+							</li> 
+							
+						</ul> 
+					</li> 
+					<li><a href="http://localhost:3000/calendar">Incoming Calendar</a></li> 
+					<!-- <li>
+						<a href="/announcements">Announcements</a>
+					</li>--> 
+					<li> 
+						<a href="/customers">Customers</a> 
+					</li> 
+					
+					
+					<li><a href="/reports">Market Reports</a></li> 
+					
+					
+					<li> 
+						<a href="/users">Users</a> 
+						<ul> 
+							<li> 
+								<a href="/users">Shippers</a> 
+							</li> 
+							
+							<li> 
+								<a href="/roles">Manage Roles</a> 
+							</li> 
+							
+						</ul> 
+					</li> 
+					
+					<li> 
+						<a href="/csv/import">CSV</a> 
+					</li> 
+					
+				</ul> 
+			</nav> 
+			<!-- End of Main navigation --> 
+ 
+		</div> 
+	</header> 
+	
+	<!-- End of Header --> 
+	<!-- Page title --> 
+	<div id="pagetitle"> 
+		<div class="wrapper"> 
+	
+ 
+		</div> 
+	</div> 
+	<!-- End of Page title --> 
+	
+	<!-- Page content --> 
+	<div id="page"> 
+		<!-- Wrapper --> 
+		<div class="wrapper"> 
+			<div class="box box-error">
+				Uh Oh!
+			</div>
+			<div class="box box-error-msg">
+				<p>Looks like something went wrong here. Please go back and try again</p>	
+			</div>
+					
+					
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	
+	
+ 
+		
+	
+ 
+	
+		</div> 
+		<!-- End of Wrapper --> 
+	</div> 
+	<!-- End of Page content --> 
+	
+	<!-- Page footer --> 
+	<footer id="bottom"> 
+		<div class="wrapper-login"> 
+			<p>Copyright &copy; 2010 <b><a href="http://www.naderhendawi.com" title="">Nader Hendawi</a></b> | Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a></p> 
+		</div> 
+	</footer> 
+	<!-- End of Page footer --> 
+ 
+<!-- Admin template javascript load --> 
+ 
+ 
+ 
+<script src="/javascripts/jquery-1.4.2.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/rails.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery-ui-1.8.2.custom.min.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/application.js?1295544443" type="text/javascript"></script> 
+<script src="/javascripts/swfobject.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.tipTip.min.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.superfish.min.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.supersubs.min.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.validate_pack.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.validate.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.nyroModal.pack.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/administry.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/autocomplete-rails.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/jquery.colorbox.js?1291819536" type="text/javascript"></script> 
+<script src="/javascripts/highcharts.js?1293037590" type="text/javascript"></script> 
+<script src="/javascripts/event_calendar.js?1295380207" type="text/javascript"></script>  
+ 
+ 
+</html> 
+</body>

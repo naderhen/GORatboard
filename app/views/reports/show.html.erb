@@ -1,0 +1,57 @@
+
+	<div id="report_subline">
+	<h1>[<%=@report.report_date%>] MARKET REPORT <span>(El resumen de las classificaciones del embarque)</span></h1>	
+	
+	</div><!-- report_subline -->
+
+	<div id="report_notes">
+	<p><%= @report.notes%></p>
+	</div><!-- report_notes -->
+
+
+	<div id="report_tables">
+		<% for category in @report.categories %>
+			<div class="category_block">
+				<h2 class="category_header"><%=h category.name %></h2>
+				<table class="report_grade_table">
+					<thead>
+						<tr>
+							<td>GRADE</td>
+							<td>PRICE</td>
+							<td>NOTES</td>
+							<td>TREND</td>
+						</tr>
+					</thead>
+			
+					<tbody>
+						<% for grade in category.grades %>
+							<tr>
+								<td><%= grade.name %></td>
+								<td><%= grade.price %></td>
+								<td class="description"><%= grade.description %></td>
+								<td>
+									<% if grade.trend == 1%>
+										<%= image_tag("trend_up.png", :size=>"30x30")%>
+									<% elsif grade.trend == -1 %>
+										<%= image_tag("trend_down.png", :size=>"30x30")%>
+									<% else %>
+										<%= image_tag("trend_static.png", :size=>"30x30")%>
+									<% end %>
+								</td>
+							</tr>
+						<% end %>
+				
+					</tbody>
+				</table>
+			</div><!-- category_block -->
+		<% end %>
+		<div class="clearfix"></div>
+	</div><!-- report_tables -->
+
+<% if current_user.admin?%>
+	<div id="report_actions">  
+	  <%= link_to "Edit", edit_report_path(@report) %> |  
+	  <%= link_to "Destroy", @report, :confirm => 'Are you sure?', :method => :delete %> |  
+	  <%= link_to "View All", reports_path %>  
+	</div><!-- report_actions -->
+<% end %>

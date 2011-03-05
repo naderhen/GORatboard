@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Reports: <%= controller.action_name %></title>
+
+<%= stylesheet_link_tag 'jqtouch', 'themes/jqt/theme', 'application_iphone' %>
+
+<%= javascript_include_tag 'jquery-1.4.2', 'jqtouch' %>
+<script type="text/javascript" charset="utf-8">
+  $.jQTouch({
+	    icon: 'jqtouch.png',
+	    statusBar: 'black'
+	});
+</script>
+
+	<%= csrf_meta_tag%>
+</head>
+<body>
+
+	<%= yield %>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  board_date: 2010-07-26
+
+two:
+  board_date: 2010-07-26

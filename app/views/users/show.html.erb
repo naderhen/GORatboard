@@ -1,0 +1,90 @@
+<table class="stylized full">
+	<thead>
+		<tr>
+	    	<th>Attribute</th>
+			<th>Content</th>
+	  	</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td>Full Name</td>
+			<td><%= @user.full_name %></td>
+		</tr>
+		<tr>
+			<td>Roles</td>
+			<td><% for role in @user.roles %>
+				<%= role.name %>
+
+			<% end %></td>
+		</tr>
+		<tr>
+			<td>Login</td>
+			<td><%= @user.login %></td>
+		</tr>
+		<tr>
+			<td>E-Mail</td>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<td>API Key</td>
+			<td><%= @user.single_access_token %></td>
+		</tr>
+		<tr>
+			<td>Login Count</td>
+			<td><%= @user.login_count %></td>
+		</tr>
+		<tr>
+			<td>Failed Login Count</td>
+			<td><%= @user.failed_login_count %></td>
+		</tr>
+		<tr>
+			<td>Last Request At</td>
+			<td><%= @user.last_request_at %></td>
+		</tr>
+		<tr>
+			<td>Current Login At</td>
+			<td><%= @user.current_login_at %></td>
+		</tr>
+		<tr>
+			<td>Last Login At</td>
+			<td><%= @user.last_login_at %></td>
+		</tr>
+		<tr>
+			<td>Current Login IP</td>
+			<td><%= @user.current_login_ip %></td>
+		</tr>
+		<tr>
+			<td>Last Login IP</td>
+			<td><%= @user.last_login_ip %></td>
+		</tr>
+
+		
+	</tbody>
+</table>
+<br />
+<br />
+<br />
+<fieldset>
+<legend>Market Reports</legend>
+</fieldset>
+<table class="stylized full">
+	<thead>
+		<tr>
+	    	<th>Report Date</th>
+			<th>Date</th>
+	  	</tr>
+	</thead>
+	
+	<tbody>
+		<% for report in @user.reports %>
+		<tr>
+			<td><%= report.report_date%></td>
+			<td><%= link_to 'Show', report %></td>
+		</tr>
+		<% end %>
+
+		
+	</tbody>
+</table>
+

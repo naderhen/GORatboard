@@ -1,0 +1,26 @@
+<% if @ratboard %>
+<div id="home">
+  <div class="toolbar">
+    <h1>Current Inventory</h1>
+  </div>
+  
+
+<ul class="edgetoedge">
+	<% for warehouse in @ratboard.warehouses  do %>
+		<li class="sep"><%= warehouse.name%></li>
+  		<% for ratgrade in warehouse.ratgrades do %>
+			<li class="arrow"><%= link_to ratgrade.name, new_ratgrade_sale_path(ratgrade) %> <small class="counter"><%= number_with_precision(ratgrade.availableamt,:precision=> 0) %> </small></li>
+		<% end %>
+
+	<% end %>
+  </ul>
+</div>
+<% else %>
+<div id="home">
+  <div class="toolbar">
+    <h1>No RATBOARD</h1>
+  </div>
+
+</div>
+
+<% end %>

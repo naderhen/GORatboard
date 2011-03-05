@@ -1,0 +1,35 @@
+<h3><%= warehouse.name %></h3>
+<div id="<%=  warehouse.id%>">
+	<table class="stylized">
+	<thead>
+	  <tr>
+	    <th>Grade</th>
+		<th>Available</th>
+		<th>Sold</th>			
+	    <th>Inventory</th>
+		<% @salesreps.each do |salesrep| %>
+			<th><%=h salesrep.login.humanize %></th>
+		<%end%>
+		<th>Average Price</th>
+		<th></th>
+		<th></th>
+	  </tr>
+	</thead>
+	<tbody>
+		
+		<%= render warehouse.ratgrades %>
+
+		
+		<tr class="footer ratgrade_row">
+			<td>Totals:</td>
+			<td><%= number_with_precision(warehouse.available, :precision=>0)%></td>
+			<td><%= number_with_precision(warehouse.sold, :precision => 0) %></td>
+			<td><%= number_with_precision(warehouse.available + warehouse.sold, :precision=>0)%></td>
+			<% @salesreps.each do |salesrep| %>
+				<td><%= warehouse.sales.find(:all, :conditions => ['user_id = ?', salesrep.id]).sum(&:amount) %></td>
+			<%end%>
+		</tr>
+	</tbody>
+	</table>
+
+</div>

@@ -1,0 +1,37 @@
+<div id="board_form">
+<%= form_for @board do |f| %>  
+  <% if @board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@board.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+      <% @board.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :board_date %><br />
+    <%= f.text_field :board_date, :class=>"datepicker" %>
+  </p>
+
+<fieldset>
+<legend>Warehouses</legend>
+</fieldset>
+
+
+	<%= f.fields_for :warehouses do |builder| %>  
+	    <%= render 'warehouse_fields', :f => builder %>  
+	<% end %>
+	
+	<div id="add_warehouse">
+	<%= link_to_add_fields "Add Warehouse", f, :warehouses %>  
+	</div>
+	
+    
+	<input type="submit" class="btn btn-green big" value="Submit">
+  </p>
+<% end %>
+</div>

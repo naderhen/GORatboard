@@ -1,0 +1,54 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+AdminUser:
+  fields:
+    default: 
+    form: 
+  order_by: 
+  relationships: 
+  filters: 
+  search: 
+  application: BBRatboard
+
+Event:
+  fields:
+    default: name, start_at, end_at, estimated, actual
+    form: name, start_at, end_at, estimated, actual
+  order_by: 
+  relationships: 
+  filters: 
+  search: name
+  application: BBRatboard
+
+Pnote:
+  fields:
+    default: preport_id, user_id, preport, user
+    form: preport_id, user_id, content, preport, user
+  order_by: 
+  relationships: preport, user
+  filters: 
+  search: 
+  application: BBRatboard
+
+Prediction:
+  fields:
+    default: preport_id, user_id, aplushigh, apluslow, ahigh, alow, aminushigh, aminuslow, bplusplushigh, bpluspluslow, twohhigh, twohlow, bhigh, blow, preport, user
+    form: preport_id, user_id, aplushigh, apluslow, ahigh, alow, aminushigh, aminuslow, bplusplushigh, bpluspluslow, twohhigh, twohlow, bhigh, blow, preport, user
+  order_by: 
+  relationships: preport, user
+  filters: 
+  search: 
+  application: BBRatboard
+
+Preport:
+  fields:
+    default: board_id, board
+    form: board_id, board
+  order_by: 
+  relationships: board, pnotes, predictions
+  filters: 
+  search: 
+  application: BBRatboard
+

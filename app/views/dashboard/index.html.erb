@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+
+<% if current_user.staff? %>
+	
+	<%= render 'staff_home'%>
+	
+<% elsif current_user.shipper? %>
+	
+	<%= render 'shipper_home' %>
+	
+<% end %>

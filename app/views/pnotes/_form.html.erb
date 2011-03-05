@@ -1,0 +1,24 @@
+<%= form_for(@pnote) do |f| %>
+  <% if @pnote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pnote.errors.count, "error") %> prohibited this pnote from being saved:</h2>
+
+      <ul>
+      <% @pnote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+		<%= f.hidden_field :user_id %> 
+		<%= f.hidden_field :preport_id %>
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

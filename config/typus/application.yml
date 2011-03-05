@@ -1,0 +1,164 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Announcement:
+  fields:
+    default: title, user_id, read, user
+    form: title, content, user_id, read, user
+  order_by: 
+  relationships: user
+  filters: 
+  search: title
+  application: BBRatboard
+
+Assignment:
+  fields:
+    default: user_id, role_id, user, role
+    form: user_id, role_id, user, role
+  order_by: 
+  relationships: role, user
+  filters: 
+  search: 
+  application: BBRatboard
+
+Attachment:
+  fields:
+    default: customer_id, attachment_file_name, customer
+    form: customer_id, attachment_file_name, customer
+  order_by: 
+  relationships: customer
+  filters: 
+  search: 
+  application: BBRatboard
+
+Board:
+  fields:
+    default: board_date
+    form: board_date
+  order_by: 
+  relationships: ratgrades, sales, warehouses
+  filters: 
+  search: 
+  application: BBRatboard
+
+Call:
+  fields:
+    default: user_id, customer_id, call_time, customer, user
+    form: user_id, customer_id, call_time, notes, customer, user
+  order_by: 
+  relationships: customer, user
+  filters: 
+  search: 
+  application: BBRatboard
+
+Category:
+  fields:
+    default: report_id, name, report
+    form: report_id, name, report
+  order_by: 
+  relationships: grades, report
+  filters: 
+  search: name
+  application: BBRatboard
+
+Customer:
+  fields:
+    default: name, address1, address2, city, state, zip, country, email, phone, fax, euler, contact
+    form: name, address1, address2, city, state, zip, country, email, phone, fax, euler, contact
+  order_by: 
+  relationships: attachments, calls, sales
+  filters: 
+  search: name
+  application: BBRatboard
+
+Grade:
+  fields:
+    default: category_id, name, price, description, trend, category
+    form: category_id, name, price, description, trend, category
+  order_by: 
+  relationships: category
+  filters: 
+  search: name
+  application: BBRatboard
+
+ImportCell:
+  fields:
+    default: import_table_id, row_index, column_index, contents, import_table
+    form: import_table_id, row_index, column_index, contents, import_table
+  order_by: 
+  relationships: import_table
+  filters: 
+  search: 
+  application: BBRatboard
+
+ImportTable:
+  fields:
+    default: original_path
+    form: original_path
+  order_by: 
+  relationships: import_cells
+  filters: 
+  search: 
+  application: BBRatboard
+
+Ratgrade:
+  fields:
+    default: warehouse_id, name, total, availdate, board, warehouse
+    form: warehouse_id, name, total, availdate, board, warehouse
+  order_by: 
+  relationships: board, sales, warehouse
+  filters: 
+  search: name
+  application: BBRatboard
+
+Report:
+  fields:
+    default: report_date
+    form: report_date, notes
+  order_by: 
+  relationships: categories, slug, slugs, users
+  filters: 
+  search: 
+  application: BBRatboard
+
+Role:
+  fields:
+    default: name
+    form: name
+  order_by: 
+  relationships: assignments, users
+  filters: 
+  search: name
+  application: BBRatboard
+
+Sale:
+  fields:
+    default: amount, ratgrade_id, invoice_date, receive_date, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, board, customer, ratgrade, user, warehouse
+    form: amount, ratgrade_id, invoice_date, receive_date, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, notes, board, customer, ratgrade, user, warehouse
+  order_by: 
+  relationships: board, customer, ratgrade, user, warehouse
+  filters: 
+  search: 
+  application: BBRatboard
+
+User:
+  fields:
+    default: login, email, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, full_name
+    form: login, email, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, full_name
+  order_by: 
+  relationships: announcements, assignments, calls, ratgrades, reports, roles, sales
+  filters: 
+  search: 
+  application: BBRatboard
+
+Warehouse:
+  fields:
+    default: board_id, name, board
+    form: board_id, name, board
+  order_by: 
+  relationships: board, ratgrades, sales
+  filters: 
+  search: name
+  application: BBRatboard
+

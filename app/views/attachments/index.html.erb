@@ -1,0 +1,34 @@
+<h1>Listing attachments</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Customer</th>
+    <th>Filename</th>
+    <th>Size</th>
+    <th>Ext.</th>
+    <th>Uploaded at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attachments.each do |attachment| %>
+  <tr>
+    <td><%= attachment.attachment_type %></td>
+    <td><%= attachment.customer.name %></td>
+    <td><%= attachment.attachment_file_name %></td>
+    <td><%= attachment.attachment_file_size %></td>
+    <td><%= attachment.attachment_content_type %></td>
+    <td><%= attachment.attachment_updated_at %></td>
+    <td><%= link_to 'Show', attachment %></td>
+    <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
+    <td><%= link_to 'Destroy', attachment, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to "Download", attachment.attachment.url%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attachment', new_attachment_path %>

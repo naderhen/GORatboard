@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 1
+  ratgrade_id: 1
+  user_id: 1
+  customer_id: 1
+  allocated: false
+
+two:
+  amount: 1
+  ratgrade_id: 1
+  user_id: 1
+  customer_id: 1
+  allocated: false

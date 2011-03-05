@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  customer_id: 1
+  call_time: 2010-11-15 19:05:39
+  notes: MyText
+
+two:
+  user_id: 1
+  customer_id: 1
+  call_time: 2010-11-15 19:05:39
+  notes: MyText

@@ -1,0 +1,63 @@
+<%= form_for (@prediction) do |f| %>
+  <% if @prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+
+      <ul>
+      <% @prediction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" colspan="2">A+</th>
+			<th class="prediction_header"  colspan="2">A</th>
+			<th class="prediction_header"  colspan="2">A-</th>
+			<th class="prediction_header"  colspan="2">B++</th>
+			<th class="prediction_header"  colspan="2">2H</th>
+			<th class="prediction_header"  colspan="2">B</th>
+
+		</thead>
+		<thead class="hilo_row">
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+
+
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><%= f.text_field :aplushigh, :class=>"small" %></td>
+				<td> <%= f.text_field :apluslow, :class=>"small" %></td>
+				<td><%= f.text_field :ahigh, :class=>"small" %></td>
+				<td><%= f.text_field :alow, :class=>"small" %></td>
+				<td><%= f.text_field :aminushigh, :class=>"small" %></td>
+				<td><%= f.text_field :aminuslow, :class=>"small" %></td>
+				<td><%= f.text_field :bplusplushigh, :class=>"small" %></td>
+				<td><%= f.text_field :bpluspluslow, :class=>"small" %></td>
+				<td><%= f.text_field :twohhigh, :class=>"small" %></td>
+				<td><%= f.text_field :twohlow, :class=>"small" %></td>
+				<td><%= f.text_field :bhigh, :class=>"small" %></td>
+				<td><%= f.text_field :blow, :class=>"small" %></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

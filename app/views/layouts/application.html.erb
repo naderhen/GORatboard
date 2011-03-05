@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Big Blue Ocean RATBoard v3</title>
+
+<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom', 'sales_report','colorbox', 'event_calendar', :media=>'all' %>
+
+	<%= csrf_meta_tag%>
+	<script src="http://js.pusherapp.com/1.6/pusher.min.js" type="text/javascript"></script>
+	
+	
+	<script type="text/javascript">
+	    var pusher_key = "<%= Pusher.key %>";
+	    var pusher_channel = "BBRatboard-<%= Rails.env %>";
+	  </script>
+	
+	
+	
+	<%= javascript_include_tag 'jquery-1.4.2'%> 
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title">&nbsp;<!--<span>Big Blue Ocean RATBoard</span>--></div>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><%= image_tag "user_32.png", :size=>"16x16", :class=>"avatar"%></a>
+				<% if current_user %>
+				
+				Logged in as <b><%= current_user.login%></b><span>|
+					
+
+				
+				
+				</span> <%= link_to "Settings", user_path(current_user)%>
+				<span>|</span> 
+				
+				
+				
+				<%= link_to "Logout", logout_path%><br />
+				
+				
+				<% else %>
+				
+				<%= link_to "Login", login_path %><br />
+				
+				<% end %>
+				<% if current_user && current_user.staff? %>
+					<small>You are an <a href="#" class="high"> Admin!</a></small><br />
+					<small>Your Single Access Token is: <a href="#" class="high"> <%=Time.now.strftime('%I:%M %p') %> </a></small>
+					
+				<% end %>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					
+					<% if current_user && current_user.staff? %>
+					<li><%= link_to "Today's RATBoard", root_url%></li>
+					<li>
+						<%= link_to "RAT History", boards_path%>
+						<ul>
+							<li>
+								<%= link_to "Today's RATBoard", root_url%>
+							</li>
+							<li>
+								<%= link_to "History", boards_path%>
+							</li>
+							
+						</ul>
+					</li>
+					<li><%= link_to "Incoming Calendar", calendar_url%></li>
+					<!-- <li>
+						<%= link_to "Announcements", announcements_path%>
+					</li>-->
+					<li>
+						<%= link_to "Customers", customers_path%>
+					</li>
+					<% end %>
+					
+					
+					<% if current_user && (current_user.admin? || current_user.shipper?) %>
+					<li><%= link_to "Market Reports", reports_path%></li>
+					<% end %>
+					
+					
+					<% if current_user && current_user.admin? %>
+					<li>
+						<%= link_to "Users", users_path%>
+						<ul>
+							<li>
+								<%= link_to "Shippers", users_path%>
+							</li>
+							
+							<li>
+								<%= link_to "Manage Roles", roles_path%>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li>
+						<%= link_to "CSV", csv_import_path%>
+					</li>
+					<% end %>
+					
+				</ul>
+			</nav>
+			<!-- End of Main navigation -->
+
+		</div>
+	</header>
+	
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper">
+			<%= yield :headline %>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">	
+					
+					<% if flash[:notice] %>
+						<div class="flash box box-success">
+							<%= flash[:notice] %>	
+						</div>
+						
+						
+					<% end %>
+					
+					
+					
+					<% if flash[:alert] %>
+						<div class="box box-error">
+							<%= flash[:alert] %>
+						</div>
+						<div class="box box-error-msg">
+							<p>You were missing one or more fields in your form submission. Please try again.</p>	
+						</div>
+						
+					<% end %>
+					
+					<%= yield %>
+					
+
+				</section>
+				<!-- End of Left column/section -->
+				
+				
+				<% if content_for?(:shortcut_title)%>
+					<!-- Right column/section -->
+					<aside class="column width2">
+						<div id="rightmenu">
+							<header>
+								<h3><%= yield :shortcut_title%></h3>
+							</header>
+							<dl class="first">
+								<%= yield :shortcut_box %>
+							</dl>
+						</div>
+						
+						
+						
+						<% if content_for?(:quick_title)%>
+						<div class="content-box">
+							<header>
+								<h3><%= yield :quick_title%></h3>
+							</header>
+							<section>
+							
+									<%= yield :quick_box %>
+							
+							</section>
+						</div>
+						<% end %>
+					</aside>
+					<!-- End of Right column/section -->
+				<% end %>
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<footer id="bottom">
+		<div class="wrapper-login">
+			<p>Copyright &copy; 2010 <b><a href="http://www.naderhendawi.com" title="">Nader Hendawi</a></b> | Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a></p>
+		</div>
+	</footer>
+	<!-- End of Page footer -->
+
+<!-- Admin template javascript load -->
+
+
+
+<%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.validate','jquery.nyroModal.pack','administry','autocomplete-rails', 'jquery.colorbox', 'highcharts', 'event_calendar'%>  
+
+
+</html>
+</body>

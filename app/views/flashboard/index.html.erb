@@ -1,0 +1,36 @@
+
+<% if @sales%>
+
+	<% @sales.group_by(&:user).each do |user, sales| %>
+		<div id="<%=user.login%>-sales" class="flash_column">
+			<h1><%= user.full_name%></h1>
+			<h2><%= sales.size%> Sales</h2>
+			<ul class="user_sales" id="<%=user.login%>-sales-list">
+				<% for sale in sales do %>
+					<li>
+						<p><%= sale.customer.name %></p>
+					
+						<p><%= sale.amount%></p> 
+						<p class="ratgrade_name"><%= sale.ratgrade.name %> </p>
+						<p class="sale_price"><%= number_to_currency(sale.price) %><p>
+					</li>
+				<% end %>
+			</ul>
+		</div><!-- user_column -->
+
+	<% end %>
+	
+	<ul>
+	<% @ratgrades.each do |ratgrade| %>
+		<li id="ratgrade-<%= ratgrade.id%>" data-warehouse="<%= ratgrade.warehouse.name%>" data-average="<%= number_to_currency(ratgrade.average_price)%>"><%= ratgrade.name%></li>
+	<% end %>
+	</ul>
+	
+	
+<% else %>
+
+<h1> No RATBoard Available!</h1>
+
+<% end %>
+
+

@@ -1,0 +1,199 @@
+
+<%= content_for :headline do %>
+<h1>Today's Market Predictions &rarr; <%= @preport.board.board_date.to_s(:long)%></h1>
+
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+
+
+
+<table class="stylized">
+	<thead>
+		<th class="prediction_header" >Salesperson</th>
+		<th class="prediction_header" colspan="2">A+</th>
+		<th class="prediction_header"  colspan="2">A</th>
+		<th class="prediction_header"  colspan="2">A-</th>
+		<th class="prediction_header"  colspan="2">B++</th>
+		<th class="prediction_header"  colspan="2">2H</th>
+		<th class="prediction_header"  colspan="2">B</th>
+		
+	</thead>
+	<thead class="hilo_row">
+		<th class="prediction_low"></th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		
+		
+	</thead>
+	
+	<tbody>
+		<% for prediction in @preport.predictions %>
+			<tr>
+				<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
+				
+				
+				<td><%= prediction.aplushigh ? (number_to_currency prediction.aplushigh) : "-"; %></td>
+				<td><%= prediction.apluslow ? (number_to_currency prediction.apluslow) : "-"; %></td>
+				
+				<td><%= prediction.ahigh ? (number_to_currency prediction.ahigh) : "-"; %></td>
+				<td><%= prediction.alow ? (number_to_currency prediction.alow) : "-"; %></td>
+				
+				<td><%= prediction.aminushigh ? (number_to_currency prediction.aminushigh) : "-"; %></td>
+				<td><%= prediction.aminuslow ? (number_to_currency prediction.aminuslow) : "-"; %></td>
+				
+				<td><%= prediction.bplusplushigh ? (number_to_currency prediction.bplusplushigh) : "-"; %></td>
+				<td><%= prediction.bpluspluslow ? (number_to_currency prediction.bpluspluslow) : "-"; %></td>
+				
+				<td><%= prediction.twohhigh ? (number_to_currency prediction.twohhigh) : "-"; %></td>
+				<td><%= prediction.twohlow ? (number_to_currency prediction.twohlow) : "-"; %></td>
+				
+				<td><%= prediction.bhigh ? (number_to_currency prediction.bhigh) : "-"; %></td>
+				<td><%= prediction.blow ? (number_to_currency prediction.blow) : "-"; %></td>
+			</tr>
+		<% end %>
+		
+			
+	</tbody>
+	
+</table>
+
+<br />
+
+<fieldset>
+<legend>Average Market Predictions</legend>
+</fieldset>
+<table class="stylized">
+	<thead>
+		<th class="prediction_header" >Averages</th>
+		<th class="prediction_header" colspan="2">A+</th>
+		<th class="prediction_header"  colspan="2">A</th>
+		<th class="prediction_header"  colspan="2">A-</th>
+		<th class="prediction_header"  colspan="2">B++</th>
+		<th class="prediction_header"  colspan="2">2H</th>
+		<th class="prediction_header"  colspan="2">B</th>
+
+	</thead>
+	<thead class="hilo_row">
+		<th></th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+
+
+	</thead>
+
+	<tr class="footer">
+		<td></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aplushigh) )%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:apluslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:ahigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:alow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aminushigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aminuslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bplusplushigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bpluspluslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:twohhigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:twohlow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bhigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:blow))%></td>
+	</tr>
+</table>
+
+
+<%= link_to "Print Prediction Report (PDF)", preport_path(@preport , :format=>"pdf"), :class=>"btn btn-blue" %>
+
+
+
+<br />
+<br />
+<br />
+
+<fieldset>
+<legend>Market Notes</legend>
+</fieldset>
+
+<h1>
+
+		<% @pnotes.group_by(&:user).each do |user, pnotes| %>
+			<h1><%= user.full_name%></h1>
+			
+			<table class="stylized full">
+				<thead>
+					<th>Comments</th>
+				</thead>
+				<tbody>
+		 	<% for pnote in pnotes %>
+		
+			
+			<tr>
+				<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
+				
+			</tr>
+			<% end %>
+
+		<% end %>
+	</tbody>
+</table>
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+<% content_for(:shortcut_title) do %>
+	Market Prediction Form
+<% end %>
+
+<% content_for(:shortcut_box) do %>
+	<%= form_for @pnote do |f| %>
+	  <% if @pnote.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@pnote.errors.count, "error") %> prohibited this pnote from being saved:</h2>
+
+	      <ul>
+	      <% @pnote.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+		<%= f.hidden_field :user_id, :value => current_user.id %> 
+		<%= f.hidden_field :preport_id, :value => @preport.id %> 
+	  <div class="field">
+	    <%= f.label "Enter your Comments Here" %><br />
+	    <%= f.text_area :content, :size=>"35" %>
+	  </div>
+	  <div class="actions">
+	    <input type="submit" class="btn btn-green big" value="Submit">
+	  </div>
+	<% end %>
+
+
+<br />
+	
+<% end %>
+

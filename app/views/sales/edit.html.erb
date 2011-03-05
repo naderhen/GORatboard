@@ -1,0 +1,108 @@
+<%= content_for :headline do %>
+<h1>Editing Sale &rarr;<span><%=@sale.customer.name%></span></h1>
+
+<% end %>
+
+<%= form_for @sale do |f| %>
+
+	<% if @sale.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+	      <ul>
+	      <% @sale.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	<p>
+	    <%= f.label "Customer" %><br />
+		<%= f.text_field :customer_id, :class=>"hide_me"%>
+
+		<input type="text" id="customer_auto" name="autocomp" autocomplete="<%=autocomplete_customer_name_sales_path%>" id_element="#sale_customer_id" placeholder="<%=@sale.customer.name%>i">
+
+	  </p>
+
+
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+
+	
+
+	<p>
+    	<%= f.label :price %><br />
+	    <%= f.text_field :price %>
+  	</p>
+
+	  <p>
+	    <%= f.label :invoice_date %><br />
+	    <%= f.text_field :invoice_date, :class=>"datepicker" %>
+	  </p>
+
+		<p>
+	    	<%= f.label :receive_date %><br />
+		    <%= f.text_field :receive_date, :class=>"datepicker" %>
+	  	</p>
+
+	
+	
+	<p>
+    	<%= f.label :fob %><br />
+	    <%= f.text_field :fob %>
+  	</p>
+
+
+
+	<p>
+    	<%= f.label :size_pref %><br />
+	    <%= f.text_field :size_pref %>
+  	</p>
+
+
+
+	<p>
+    	<%= f.label "C/T/F" %><br />
+	    <%= f.text_field :cotefr %>
+  	</p>
+
+	
+	<p>
+    	<%= f.label "Customer PO" %><br />
+	    <%= f.text_field :customer_po %>
+  	</p>
+	
+	<p>
+    	<%= f.label :notes %><br />
+	    <%= f.text_area :notes %>
+  	</p>
+
+	
+
+	
+	  
+	
+	
+	<%= f.hidden_field :ratgrade_id %>
+	
+
+	<%= f.hidden_field :warehouse_id %> 
+	
+	<%= f.hidden_field :user_id, :value => current_user.id %> 
+	<%= f.hidden_field :allocated, :value => "false" %> 
+  <p>
+    
+	<input type="submit" class="btn btn-green big" value="Update">
+  </p>
+<% end %>
+
+
+
+
+
+
+
+

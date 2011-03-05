@@ -1,0 +1,56 @@
+<div id="report_form">
+<%= form_for @report do |f| %>  
+<% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="report_date_span">
+    <h2>Report Date</h2>
+    <%= f.text_field :report_date, :class=>"datepicker"%>
+</div>
+
+  
+<div id="checkbox_container">
+	<h2>Send To:</h2>	
+	<% for user in Role.find(4).users %>
+		<div class="user_checkbox">
+			<%= check_box_tag "report[user_ids][]", user.id, @report.users.include?(user) %>
+			<%= user.full_name %>
+		</div>
+		
+	<% end %>
+
+</div><!-- user_checks -->
+	<div class="clearfix"></div>
+	
+  <div>
+    <h3>Report Notes</h3>
+    <%= f.text_area :notes, :rows=>'20', :size=>'105' %>
+  </div>
+
+<fieldset>
+<legend>Categories</legend>
+</fieldset>
+
+
+	<%= f.fields_for :categories do |builder| %>  
+	    <%= render 'category_fields', :f => builder %>  
+	<% end %>
+	
+	<div id="add_category">
+	<%= link_to_add_fields "Add Category", f, :categories %>  
+	</div>
+	<br />
+	<br />
+    <%= f.submit "Save" %>
+
+<% end %>
+</div>

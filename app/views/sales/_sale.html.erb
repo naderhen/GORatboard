@@ -1,0 +1,33 @@
+<div class="worksheet_container">
+	<div class="worksheet_content">
+		<% if @sale.invoice_date &&(@sale.invoice_date > Date.today) %>
+			<h2 class="wk_prebill">**PRE-BILL!**</h2>
+		
+		<% end %>
+		<h2 class="wk_id"><%= @sale.id if @sale.id %></h2>
+		<h2 class="wk_user"><%= @sale.user.full_name if @sale.user.full_name %></h2>
+
+		<h2 class="wk_customer"><%= @sale.customer.name if @sale.customer.name %></h2>
+		<h2 class="wk_customer_po"><%= @sale.customer_po if @sale.customer_po %></h2>
+		
+		<h2 class="wk_fob"><%= @sale.fob if @sale.fob %></h2>
+		
+		<h2 class="wk_invoice_date"><%= @sale.invoice_date.strftime('%m/%d') if @sale.invoice_date %></h2>
+		<h2 class="wk_receive_date"><%= @sale.receive_date.strftime('%m/%d') if @sale.receive_date  %></h2>
+
+		<h2 class="wk_amount"><%= @sale.amount if @sale.amount %></h2>
+		<h2 class="wk_ratgrade"><%= @sale.ratgrade.name if @sale.amount %></h2>
+		<h2 class="wk_price"><%= number_to_currency(@sale.price) if @sale.price %></h2>
+		
+		
+		<h2 class="wk_size_pref"><%= @sale.size_pref if @sale.size_pref %></h2>
+		<h2 class="wk_cft"><%= @sale.cotefr if @sale.cotefr %></h2>
+
+		<p class="wk_notes"><%= @sale.notes if @sale.notes %></p>
+
+
+
+		
+	
+	</div><!-- worksheet_content -->
+</div><!-- worksheet_container -->

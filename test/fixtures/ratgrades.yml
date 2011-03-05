@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  warehouse_id: 1
+  name: MyString
+  total: 1
+  availdate: 2010-07-26
+
+two:
+  warehouse_id: 1
+  name: MyString
+  total: 1
+  availdate: 2010-07-26

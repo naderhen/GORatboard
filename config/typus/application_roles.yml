@@ -1,0 +1,21 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  Announcement: create, read, update, delete
+  Assignment: create, read, update, delete
+  Attachment: create, read, update, delete
+  Board: create, read, update, delete
+  Call: create, read, update, delete
+  Category: create, read, update, delete
+  Customer: create, read, update, delete
+  Grade: create, read, update, delete
+  ImportCell: create, read, update, delete
+  ImportTable: create, read, update, delete
+  Ratgrade: create, read, update, delete
+  Report: create, read, update, delete
+  Role: create, read, update, delete
+  Sale: create, read, update, delete
+  User: create, read, update, delete
+  Warehouse: create, read, update, delete

@@ -1,0 +1,28 @@
+<h1>Listing sales</h1>
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Ratgrade</th>
+    <th>User</th>
+    <th>Customer</th>
+    <th>Allocated</th>
+  </tr>
+
+<% @sales.each do |sale| %>
+  <tr>
+    <td><%=h sale.amount %></td>
+    <td><%=h sale.ratgrade_id %></td>
+    <td><%=h sale.user_id %></td>
+    <td><%=h sale.customer_id %></td>
+    <td><%=h sale.allocated %></td>
+    <td><%= link_to 'Show', sale %></td>
+    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sale', new_sale_path %>

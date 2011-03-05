@@ -1,0 +1,49 @@
+<h1>Listing predictions</h1>
+
+<table>
+  <tr>
+    <th>Preport</th>
+    <th>User</th>
+    <th>Aplushigh</th>
+    <th>Apluslow</th>
+    <th>Ahigh</th>
+    <th>Alow</th>
+    <th>Aminushigh</th>
+    <th>Aminuslow</th>
+    <th>Bplusplushigh</th>
+    <th>Bpluspluslow</th>
+    <th>Twohhigh</th>
+    <th>Twohlow</th>
+    <th>Bhigh</th>
+    <th>Blow</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @predictions.each do |prediction| %>
+  <tr>
+    <td><%= prediction.preport_id %></td>
+    <td><%= prediction.user_id %></td>
+    <td><%= prediction.aplushigh %></td>
+    <td><%= prediction.apluslow %></td>
+    <td><%= prediction.ahigh %></td>
+    <td><%= prediction.alow %></td>
+    <td><%= prediction.aminushigh %></td>
+    <td><%= prediction.aminuslow %></td>
+    <td><%= prediction.bplusplushigh %></td>
+    <td><%= prediction.bpluspluslow %></td>
+    <td><%= prediction.twohhigh %></td>
+    <td><%= prediction.twohlow %></td>
+    <td><%= prediction.bhigh %></td>
+    <td><%= prediction.blow %></td>
+    <td><%= link_to 'Show', prediction %></td>
+    <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
+    <td><%= link_to 'Destroy', prediction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prediction', new_prediction_path %>

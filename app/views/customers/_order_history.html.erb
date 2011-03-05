@@ -1,0 +1,28 @@
+<table class="full stylized">
+<tr>
+    <th>Amount</th>
+    <th>Grade</th>
+    <th>Customer</th>
+    <th>Allocated</th>
+	<th>Price</th>
+	<th>Actions</th>
+	<th>&nbsp; </th>
+	<th>&nbsp; </th>
+ </tr>
+
+
+<% for sale in @customer.sales %>
+<tr>
+	<td><%=h sale.amount %></td>
+    <td><%=h sale.ratgrade.name %></td>
+    <td><%=h sale.customer.name %></td>
+    <td><%=h sale.allocated %></td>
+	<td>
+		<%= sale.price%>
+	</td>
+    <td><%= link_to 'Show', sale %></td>
+    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+<% end%>
+</table>

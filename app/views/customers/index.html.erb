@@ -1,0 +1,41 @@
+<%= content_for :headline do %>
+<h1>Customers &rarr; <span>List</span></h1>
+<% end %>
+
+
+
+
+
+
+<fieldset>
+	<legend>Search Form</legend>
+</fieldset>
+
+
+<%= form_tag customers_path, :method => 'get', :id => "customers_search" do %>
+  
+    <%= text_field_tag :search, params[:search], :placeholder=>"Search by Company Name" %>
+
+	<%= customers_per_page_select @customers %> Per Page
+
+
+	<%= submit_tag "Search", :class => "btn" %>
+  <div id="customers"><%= render 'customers' %></div>
+<% end %>
+
+
+
+<p><%= link_to "New Customer", new_customer_path %></p>
+
+
+
+<br />
+<%= link_to "Delete UnTyped Customers", delete_bad_customers_path%>
+
+
+
+
+
+
+
+

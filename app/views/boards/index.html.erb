@@ -1,0 +1,58 @@
+<%= content_for :headline do %>
+<h1>Listing Boards</h1>
+<% end %>
+
+
+
+
+
+
+<table class="stylized">
+  <tr>
+    <th>Board</th>
+	<th>Sales</th>
+	<th>Prediction Report</th>
+	<th>&nbsp;</th>
+	
+	<th>&nbsp;</th>
+	<% if current_user.admin? %>
+	<th>&nbsp;</th>
+	<% end %>
+  </tr>
+
+<% @boards.each do |board| %>
+  <tr>
+    <td><%=h board.board_date.to_s(:long) %></td>
+	<td><%= board.sales.size %></td>
+	<td><%= link_to 'Market Predictions', board.preport%></th>
+    <td><%= link_to 'Show', board %></td>
+
+	
+    <td><%= link_to 'Edit', edit_board_path(board) %></td>
+	<% if current_user.admin?%>
+    <td><%= link_to 'Destroy', board, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New RATBoard', new_board_path %>
+
+
+<% content_for :quick_box do %>
+	<% content_for :quick_title do%>
+		 Older RATBoards
+	<% end %>
+	<% for board in Board.all(:order=>"board_date DESC", :limit=>"3") %>
+		<dt><%= link_to board.board_date.to_s(:long), board %></dt>
+	<% end %>
+<% end %>
+
+
+
+
+
+
+

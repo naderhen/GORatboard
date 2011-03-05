@@ -1,0 +1,27 @@
+<h3>Log in</h3>
+  
+<%= form_for @user_session, :url=>{:action=>"create"}, :html => { :id => "loginform" } do |form| %>  
+
+	<p>
+		<label for="username">Username:</label><br/>
+
+		<%= form.text_field :login, :html=>{ :id=>"username", :class=>"full", :name=>"username"}%>
+		
+	</p>
+	
+	<p>
+		<label for="password">Password:</label><br/>
+		<%= form.password_field :password, :html=>{ :id=>"password", :class=>"full", :name=>"password"}%>
+	</p>
+
+
+    <%= form.submit "Log In", :class=>"btn btn-green big" %> 
+
+	<div class="clear">&nbsp;</div> 
+
+
+ 
+<% end %>
+
+
+

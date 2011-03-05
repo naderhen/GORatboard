@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Attachment type:</b>
+  <%= @attachment.attachment_type %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @attachment.customer_id %>
+</p>
+
+<p>
+  <b>Attachment file name:</b>
+  <%= @attachment.attachment_file_name %>
+</p>
+
+<p>
+  <b>Attachment file size:</b>
+  <%= @attachment.attachment_file_size %>
+</p>
+
+<p>
+  <b>Attachment content type:</b>
+  <%= @attachment.attachment_content_type %>
+</p>
+
+<p>
+  <b>Attachment updated at:</b>
+  <%= @attachment.attachment_updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_attachment_path(@attachment) %> |
+<%= link_to 'Back', attachments_path %>

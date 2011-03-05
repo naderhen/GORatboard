@@ -1,0 +1,44 @@
+
+
+<% if @ratboard%>
+	<%= content_for :headline do %>
+	<h1>Today's RATBoard &rarr; <span><%= link_to"Sales Summary", rat_sales_board_path(@ratboard), :class=>"btn btn-green"%></span><span id="prediction_link"><%= link_to"Prediction Report", board_preport_path(@ratboard,@ratboard.preport), :class=>"btn btn-blue"%></span></h1>
+	<%= link_to image_tag('excel.png', :size=>"25x25"), print_csv_board_path(@ratboard), :id=>"excel_link"%>
+	<% end %>
+	
+	
+
+	<fieldset>
+	<legend>Today's Progress</legend>
+		<div id="progress2" class="progress full progress-<%=@ratboard.progress_color %>" value="2"><span style="width: <%= @ratboard.pct_sold %>%; display: block; "><b style="display: inline; "><%= number_with_precision(@ratboard.pct_sold, :precision => 2) %>%</b></span></div>
+	</fieldset>
+
+	<div id="ratboard" data-id="<%=@ratboard.id %>">
+	<%= render 'boards/ratboard'%>
+	</div>
+	
+	
+	<% content_for(:shortcut_title) do %>
+		Quick Sales Form
+	<% end %>
+
+	<% content_for(:shortcut_box) do %>
+		<%= render 'quick_sale'%>
+	<% end %>
+	
+	
+	
+
+	
+	<br />
+	<br />
+
+	
+<% else %>
+
+	<h2>There is no RATBoard associated with today's date!</h2
+	<h3> Click <%=link_to "Here", new_board_path%> to create one</h3>
+<% end %>
+
+
+

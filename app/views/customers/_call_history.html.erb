@@ -1,0 +1,25 @@
+<table class="full stylized">
+  <tr>
+    <th>User</th>
+    <th>Customer</th>
+    <th>Call time</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%for call in @customer.calls %>
+  <tr>
+    <td><%= call.user.login %></td>
+    <td><%= call.customer.name %></td>
+    <td><%= call.call_time %></td>
+    <td><%= call.notes %></td>
+    <td><%= link_to 'Edit', edit_customer_call_path(@customer,call) %></td>
+    <td><%= link_to 'Destroy', [@customer, call], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Call', new_customer_call_path(@customer) %>

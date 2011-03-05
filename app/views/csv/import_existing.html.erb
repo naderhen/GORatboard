@@ -1,0 +1,6 @@
+<% form_for :customer_import, :url=>{ :controller=>"csv", :action => 'customer_import'},
+:html => { :multipart => true } do |f| %>
+  <p><%= f.label :file, 'Import Existing Customer file' %><br/>
+    <%= f.file_field :file -%></p>
+    <p><%= submit_tag "Submit" %></p>
+<% end %>

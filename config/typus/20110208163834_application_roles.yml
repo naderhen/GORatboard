@@ -1,0 +1,10 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  AdminUser: create, read, update, delete
+  Event: create, read, update, delete
+  Pnote: create, read, update, delete
+  Prediction: create, read, update, delete
+  Preport: create, read, update, delete

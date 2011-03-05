@@ -1,0 +1,22 @@
+<h1>Listing warehouses</h1>
+
+<table>
+  <tr>
+    <th>Board</th>
+    <th>Name</th>
+  </tr>
+
+<% @warehouses.each do |warehouse| %>
+  <tr>
+    <td><%=h warehouse.board_id %></td>
+    <td><%=h warehouse.name %></td>
+    <td><%= link_to 'Show', warehouse %></td>
+    <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
+    <td><%= link_to 'Destroy', warehouse, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New warehouse', new_warehouse_path %>

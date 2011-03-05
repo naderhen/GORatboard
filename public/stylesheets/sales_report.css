@@ -1,0 +1,13 @@
+@media print{
+
+#top,#rightmenu,.content-box,#bottom{display:none;}
+
+#title{
+	width:339px;
+	height:55px;
+	background-image:url('../images/logo-black.png');
+	background-repeat:no-repeat;
+	margin-top:10px;
+}
+
+}
