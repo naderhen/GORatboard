@@ -3,13 +3,12 @@
 <% if @ratboard%>
 	<%= content_for :headline do %>
 		<h1>Today's RATBoard &rarr; 
-	
-	<% if current_user && current_user.admin? %>
+		
 			<span><%= link_to"Sales Summary", rat_sales_board_path(@ratboard), :class=>"btn btn-green"%></span><span id="prediction_link"><%= link_to"Prediction Report", board_preport_path(@ratboard,@ratboard.preport), :class=>"btn btn-blue"%></span>
 		
 		</h1>
 	
-
+		<% if current_user && current_user.admin? %>
 		<%= link_to image_tag('excel.png', :size=>"25x25"), print_csv_board_path(@ratboard), :id=>"excel_link"%>
 		<% end %>
 	
