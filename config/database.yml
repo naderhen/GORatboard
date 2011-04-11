@@ -35,5 +35,5 @@ production:
   database: bbv66_production
   pool: 5
   username: root
-  password:
+  password: bigblue
   socket: /var/run/mysqld/mysqld.sock
