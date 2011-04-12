@@ -93,16 +93,17 @@ class BoardsController < ApplicationController
   
   def rat_sales
     @board = Board.find(params[:id])
+    
     if current_user.admin?
       @sales = @board.sales
+      @unprinted = @sales.unprinted.size
     else
-      @tsales = @board.sales
-      @sales = @tsales.find(:all, :conditions=>["user_id=?", current_user.id]) 
+      @allsales = @board.sales
+      @sales = @allsales.find(:all, :conditions=>["user_id=?", current_user.id]) 
+      @unprinted = @sales.unprinted.size
     end
-    @unprinted = @sales.unprinted.size
-    @salesreps = Role.find(2).users
-
     
+    @salesreps = Role.find(2).users
   end
   
   
