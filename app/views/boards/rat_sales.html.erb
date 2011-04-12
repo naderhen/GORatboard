@@ -1,4 +1,4 @@
-<% if current_user && current_user.admin? %>
+<% if current_user%>
 	<h1>Listing sales for <%= @board.board_date.to_s(:long)%></h1>
 
 
@@ -6,7 +6,7 @@
 
 	<a id="print_sales_button" href="<%=print_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print All Invoices</a>
 
-	<% if @unprinted > 0%>
+	<% if @unprinted%>
 	<a id="print_unprinted_sales_button" href="<%=print_unprinted_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("error.png", :class=>"icon")%>Print Unprinted Invoices (<%= @unprinted %>)</a>
 	<% end %>
 

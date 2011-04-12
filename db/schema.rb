@@ -124,6 +124,12 @@ ActiveRecord::Schema.define(:version => 20110111171156) do
     t.datetime "updated_at"
   end
 
+  create_table "prediction_reports", :force => true do |t|
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "predictions", :force => true do |t|
     t.integer  "preport_id"
     t.integer  "user_id"
