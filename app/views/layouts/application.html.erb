@@ -50,7 +50,7 @@
 				
 				<% end %>
 				<% if current_user && current_user.staff? %>
-					<small>You are an <a href="#" class="high"> Testing!</a></small><br />
+					<small>You are an <a href="#" class="high"> <%= current_user.admin? %></a></small><br />
 					<small>Your Single Access Token is: <a href="#" class="high"> <%=Time.now.strftime('%I:%M %p') %> </a></small>
 					
 				<% end %>

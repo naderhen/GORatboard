@@ -96,7 +96,8 @@ class BoardsController < ApplicationController
     if current_user.admin?
       @sales = @board.sales
     else
-      @sales = @board.sales.where("user_id <= ?", current_user.id)
+      @tsales = @board.sales
+      @sales = @tsales.find(:all, :conditions=>["user_id=?", current_user.id]) 
     end
     @unprinted = @sales.unprinted.size
     @salesreps = Role.find(2).users
