@@ -15,9 +15,9 @@
 
 	<div class="clearfix"></div>
 
-	<% @sales.group_by(&:user).each do |user,sales| %>
-		<h2><%=user.full_name %></h2>
-		 <a id="print_user_sales_button" href="<%=print_user_sales_board_path(:user_id=>user.id, :format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print Invoices (<%=sales.size%>)</a>
+
+		<h2><%=current_user.full_name %></h2>
+		 <a id="print_user_sales_button" href="<%=print_user_sales_board_path(:user_id=>user.id, :format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print Invoices (<%=@sales.size%>)</a>
 	
 	
 	
@@ -41,7 +41,7 @@
 		 </tr>
 
 
-	  	<% sales.each do |sale| %>
+	  	<% @sales.each do |sale| %>
 		<tr>
 	    	<td><%=h sale.amount if sale.amount %></td>
 		    <td><%=h sale.ratgrade.name if sale.ratgrade.name %></td>
@@ -77,7 +77,6 @@
 	  </tr>
 		<% end%>
 		</table>
-	<% end %>
 
 
 	<br />
