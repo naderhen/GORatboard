@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
   def create  
     @user_session = UserSession.new(params[:user_session])  
     if @user_session.save  
-      flash[:notice] = "Welcome to Big Blue Oceans! "  
+      flash[:notice] = "Welcome to Great Oceans! "  
       if iphone_request?
         redirect_to root_url and return
       else

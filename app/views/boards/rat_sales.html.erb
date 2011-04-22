@@ -6,7 +6,7 @@
 
 	<a id="print_sales_button" href="<%=print_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print All Invoices</a>
 
-	<% if @unprinted%>
+	<% if @unprinted > 0%>
 	<a id="print_unprinted_sales_button" href="<%=print_unprinted_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("error.png", :class=>"icon")%>Print Unprinted Invoices (<%= @unprinted %>)</a>
 	<% end %>
 
