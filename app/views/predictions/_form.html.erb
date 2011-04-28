@@ -55,6 +55,95 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header"  colspan="2">Swordfish 100+</th>
+			<th class="prediction_header"  colspan="2">Swordfish 70/99</th>
+			<th class="prediction_header"  colspan="2">Snapper 3/4-1</th>
+			<th class="prediction_header"  colspan="2">Snapper1-2</th>
+			<th class="prediction_header"  colspan="2">Snapper 2-4</th>
+			<th class="prediction_header"  colspan="2">Snapper 6+</th>
+		</thead>
+	
+		<thead class="hilo_row">
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+		
+		</thead>
+	
+			<tbody>
+				<tr>
+					<td><%= f.text_field :sword100h, :class=>"small" %></td>
+					<td> <%= f.text_field :sword100l, :class=>"small" %></td>
+					<td><%= f.text_field :sword7099h, :class=>"small" %></td>
+					<td><%= f.text_field :sword7099l, :class=>"small" %></td>
+					<td><%= f.text_field :snap34h, :class=>"small" %></td>
+					<td><%= f.text_field :snap34l, :class=>"small" %></td>
+					<td><%= f.text_field :snap12h, :class=>"small" %></td>
+					<td><%= f.text_field :snap12l, :class=>"small" %></td>
+					<td><%= f.text_field :snap24h, :class=>"small" %></td>
+					<td><%= f.text_field :snap24l, :class=>"small" %></td>
+					<td><%= f.text_field :snap6h, :class=>"small" %></td>
+					<td><%= f.text_field :snap6l, :class=>"small" %></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<table class="stylized">
+			<thead>
+				<th class="prediction_header"  colspan="2">B-liner 1-2</th>
+				<th class="prediction_header"  colspan="2">Lane 1-2</th>
+				<th class="prediction_header"  colspan="2">Lane 2-4</th>
+				<th class="prediction_header"  colspan="2">Mahi 10-15</th>
+				<th class="prediction_header"  colspan="2">Mahi 15-20</th>
+				<th class="prediction_header"  colspan="2">Mahi 20+</th>
+			</thead>
+
+			<thead class="hilo_row">
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>
+				<th class="prediction_high">High</th>
+				<th class="prediction_low">Low</th>		
+
+			</thead>
+
+				<tbody>
+					<tr>
+						<td><%= f.text_field :bline12h, :class=>"small" %></td>
+						<td> <%= f.text_field :bline12l, :class=>"small" %></td>
+						<td><%= f.text_field :lane12h, :class=>"small" %></td>
+						<td><%= f.text_field :lane12l, :class=>"small" %></td>
+						<td><%= f.text_field :lane24h, :class=>"small" %></td>
+						<td><%= f.text_field :lane24l, :class=>"small" %></td>
+						<td><%= f.text_field :mahi1015h, :class=>"small" %></td>
+						<td><%= f.text_field :mahi1015l, :class=>"small" %></td>
+						<td><%= f.text_field :mahi1520h, :class=>"small" %></td>
+						<td><%= f.text_field :mahi1520l, :class=>"small" %></td>
+						<td><%= f.text_field :mahi20h, :class=>"small" %></td>
+						<td><%= f.text_field :mahi20l, :class=>"small" %></td>
+					</tr>
+				</tbody>
+			</table>
 
 
   <div class="actions">

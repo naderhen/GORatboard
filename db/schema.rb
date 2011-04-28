@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110111171156) do
+ActiveRecord::Schema.define(:version => 20110428011402) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -147,6 +147,30 @@ ActiveRecord::Schema.define(:version => 20110111171156) do
     t.float    "blow"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "sword100h"
+    t.float    "sword100l"
+    t.float    "sword7099h"
+    t.float    "sword7099l"
+    t.float    "snap34h"
+    t.float    "snap34l"
+    t.float    "snap12h"
+    t.float    "snap12l"
+    t.float    "snap24h"
+    t.float    "snap24l"
+    t.float    "snap6h"
+    t.float    "snap6l"
+    t.float    "bline12h"
+    t.float    "bline12l"
+    t.float    "lane12h"
+    t.float    "lane12l"
+    t.float    "lane24h"
+    t.float    "lane24l"
+    t.float    "mahi1015h"
+    t.float    "mahi1015l"
+    t.float    "mahi1520h"
+    t.float    "mahi1520l"
+    t.float    "mahi20h"
+    t.float    "mahi20l"
   end
 
   create_table "preports", :force => true do |t|
@@ -205,6 +229,7 @@ ActiveRecord::Schema.define(:version => 20110111171156) do
     t.date     "invoice_date"
     t.date     "receive_date"
     t.boolean  "oversale"
+    t.boolean  "reprint",      :default => false
   end
 
   create_table "slugs", :force => true do |t|

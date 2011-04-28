@@ -8,155 +8,335 @@
 
 
 
-
-<table class="stylized">
-	<thead>
-		<th class="prediction_header" >Salesperson</th>
-		<th class="prediction_header" colspan="2">A+</th>
-		<th class="prediction_header"  colspan="2">A</th>
-		<th class="prediction_header"  colspan="2">A-</th>
-		<th class="prediction_header"  colspan="2">B++</th>
-		<th class="prediction_header"  colspan="2">2H</th>
-		<th class="prediction_header"  colspan="2">B</th>
-		
-	</thead>
-	<thead class="hilo_row">
-		<th class="prediction_low"></th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		
-		
-	</thead>
+<div class="prediction_table_container">
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" >Salesperson</th>
+			<th class="prediction_header" colspan="2">A+</th>
+			<th class="prediction_header"  colspan="2">A</th>
+			<th class="prediction_header"  colspan="2">A-</th>
+			<th class="prediction_header"  colspan="2">B++</th>
+			<th class="prediction_header"  colspan="2">2H</th>
+			<th class="prediction_header"  colspan="2">B</th>
+		</thead>
 	
-	<tbody>
-		<% for prediction in @preport.predictions %>
-			<tr>
-				<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
-				
-				
-				<td><%= prediction.aplushigh ? (number_to_currency prediction.aplushigh) : "-"; %></td>
-				<td><%= prediction.apluslow ? (number_to_currency prediction.apluslow) : "-"; %></td>
-				
-				<td><%= prediction.ahigh ? (number_to_currency prediction.ahigh) : "-"; %></td>
-				<td><%= prediction.alow ? (number_to_currency prediction.alow) : "-"; %></td>
-				
-				<td><%= prediction.aminushigh ? (number_to_currency prediction.aminushigh) : "-"; %></td>
-				<td><%= prediction.aminuslow ? (number_to_currency prediction.aminuslow) : "-"; %></td>
-				
-				<td><%= prediction.bplusplushigh ? (number_to_currency prediction.bplusplushigh) : "-"; %></td>
-				<td><%= prediction.bpluspluslow ? (number_to_currency prediction.bpluspluslow) : "-"; %></td>
-				
-				<td><%= prediction.twohhigh ? (number_to_currency prediction.twohhigh) : "-"; %></td>
-				<td><%= prediction.twohlow ? (number_to_currency prediction.twohlow) : "-"; %></td>
-				
-				<td><%= prediction.bhigh ? (number_to_currency prediction.bhigh) : "-"; %></td>
-				<td><%= prediction.blow ? (number_to_currency prediction.blow) : "-"; %></td>
-			</tr>
-		<% end %>
+		<thead class="hilo_row">
+			<th class="prediction_low"></th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
 		
-			
-	</tbody>
+		</thead>
 	
-</table>
+		<tbody>
+			<% for prediction in @preport.predictions %>
+				<tr>
+					<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
+				
+					
+					<td><%= prediction.aplushigh ? (number_to_currency prediction.aplushigh) : "-"; %></td>
+					<td><%= prediction.apluslow ? (number_to_currency prediction.apluslow) : "-"; %></td>
 
-<br />
+					<td><%= prediction.ahigh ? (number_to_currency prediction.ahigh) : "-"; %></td>
+					<td><%= prediction.alow ? (number_to_currency prediction.alow) : "-"; %></td>
 
-<fieldset>
-<legend>Average Market Predictions</legend>
-</fieldset>
-<table class="stylized">
-	<thead>
-		<th class="prediction_header" >Averages</th>
-		<th class="prediction_header" colspan="2">A+</th>
-		<th class="prediction_header"  colspan="2">A</th>
-		<th class="prediction_header"  colspan="2">A-</th>
-		<th class="prediction_header"  colspan="2">B++</th>
-		<th class="prediction_header"  colspan="2">2H</th>
-		<th class="prediction_header"  colspan="2">B</th>
+					<td><%= prediction.aminushigh ? (number_to_currency prediction.aminushigh) : "-"; %></td>
+					<td><%= prediction.aminuslow ? (number_to_currency prediction.aminuslow) : "-"; %></td>
 
-	</thead>
-	<thead class="hilo_row">
-		<th></th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
-		<th class="prediction_high">High</th>
-		<th class="prediction_low">Low</th>
+					<td><%= prediction.bplusplushigh ? (number_to_currency prediction.bplusplushigh) : "-"; %></td>
+					<td><%= prediction.bpluspluslow ? (number_to_currency prediction.bpluspluslow) : "-"; %></td>
 
+					<td><%= prediction.twohhigh ? (number_to_currency prediction.twohhigh) : "-"; %></td>
+					<td><%= prediction.twohlow ? (number_to_currency prediction.twohlow) : "-"; %></td>
 
-	</thead>
-
-	<tr class="footer">
-		<td></td>
-		<td><%= (number_to_currency @preport.predictions.average(:aplushigh) )%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:apluslow))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:ahigh))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:alow))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:aminushigh))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:aminuslow))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:bplusplushigh))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:bpluspluslow))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:twohhigh))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:twohlow))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:bhigh))%></td>
-		<td><%= (number_to_currency @preport.predictions.average(:blow))%></td>
-	</tr>
-</table>
-
-
-<%= link_to "Print Prediction Report (PDF)", preport_path(@preport , :format=>"pdf"), :class=>"btn btn-blue" %>
-
-
-
-<br />
-<br />
-<br />
-
-<fieldset>
-<legend>Market Notes</legend>
-</fieldset>
-
-<h1>
-
-		<% @pnotes.group_by(&:user).each do |user, pnotes| %>
-			<h1><%= user.full_name%></h1>
-			
-			<table class="stylized full">
-				<thead>
-					<th>Comments</th>
-				</thead>
-				<tbody>
-		 	<% for pnote in pnotes %>
+					<td><%= prediction.bhigh ? (number_to_currency prediction.bhigh) : "-"; %></td>
+					<td><%= prediction.blow ? (number_to_currency prediction.blow) : "-"; %></td>
+				</tr>
+			<% end %>
 		
 			
-			<tr>
-				<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
-				
-			</tr>
+		</tbody>
+	
+	</table>
+	
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" >Salesperson</th>
+			<th class="prediction_header"  colspan="2">Swordfish 100+</th>
+			<th class="prediction_header"  colspan="2">Swordfish 70/99</th>
+			<th class="prediction_header"  colspan="2">Snapper 3/4-1</th>
+			<th class="prediction_header"  colspan="2">Snapper1-2</th>
+			<th class="prediction_header"  colspan="2">Snapper 2-4</th>
+			<th class="prediction_header"  colspan="2">Snapper 6+</th>
+		</thead>
+
+		<thead class="hilo_row">
+			<th class="prediction_low"></th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>	
+
+		</thead>
+
+		<tbody>
+			<% for prediction in @preport.predictions %>
+				<tr>
+					<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
+
+					<td><%= prediction.sword100h ? (number_to_currency prediction.sword100h) : "-"; %></td>
+					<td><%= prediction.sword100l ? (number_to_currency prediction.sword100l) : "-"; %></td>
+
+					<td><%= prediction.sword7099h ? (number_to_currency prediction.sword7099h) : "-"; %></td>
+					<td><%= prediction.sword7099l ? (number_to_currency prediction.sword7099l) : "-"; %></td>
+
+					<td><%= prediction.snap34h ? (number_to_currency prediction.snap34h) : "-"; %></td>
+					<td><%= prediction.snap34l ? (number_to_currency prediction.snap34l) : "-"; %></td>
+
+					<td><%= prediction.snap12h ? (number_to_currency prediction.snap12h) : "-"; %></td>
+					<td><%= prediction.snap12l ? (number_to_currency prediction.snap12l) : "-"; %></td>
+
+					<td><%= prediction.snap24h ? (number_to_currency prediction.snap24h) : "-"; %></td>
+					<td><%= prediction.snap24l ? (number_to_currency prediction.snap24l) : "-"; %></td>
+
+					<td><%= prediction.snap6h ? (number_to_currency prediction.snap6h) : "-"; %></td>
+					<td><%= prediction.snap6l ? (number_to_currency prediction.snap6l) : "-"; %></td>
+
+
+				</tr>
 			<% end %>
 
-		<% end %>
-	</tbody>
-</table>
+
+		</tbody>
+
+	</table>
+
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" >Salesperson</th>
+			<th class="prediction_header"  colspan="2">B-liner 1-2</th>
+			<th class="prediction_header"  colspan="2">Lane 1-2</th>
+			<th class="prediction_header"  colspan="2">Lane 2-4</th>
+			<th class="prediction_header"  colspan="2">Mahi 10-15</th>
+			<th class="prediction_header"  colspan="2">Mahi 15-20</th>
+			<th class="prediction_header"  colspan="2">Mahi 20+</th>
+		</thead>
+
+		<thead class="hilo_row">
+			<th class="prediction_low"></th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>		
+
+		</thead>
+
+		<tbody>
+			<% for prediction in @preport.predictions %>
+				<tr>
+					<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
+
+					<td><%= prediction.bline12h ? (number_to_currency prediction.bline12h) : "-"; %></td>
+					<td><%= prediction.bline12l ? (number_to_currency prediction.bline12l) : "-"; %></td>
+
+					<td><%= prediction.lane12h ? (number_to_currency prediction.lane12h) : "-"; %></td>
+					<td><%= prediction.lane12l ? (number_to_currency prediction.lane12l) : "-"; %></td>
+
+					<td><%= prediction.lane24h ? (number_to_currency prediction.lane24h) : "-"; %></td>
+					<td><%= prediction.lane24l ? (number_to_currency prediction.lane24l) : "-"; %></td>
+
+					<td><%= prediction.mahi1015h ? (number_to_currency prediction.mahi1015h) : "-"; %></td>
+					<td><%= prediction.mahi1015l ? (number_to_currency prediction.mahi1015l) : "-"; %></td>
+
+					<td><%= prediction.mahi1520h ? (number_to_currency prediction.mahi1520h) : "-"; %></td>
+					<td><%= prediction.mahi1520l ? (number_to_currency prediction.mahi1520l) : "-"; %></td>
+
+					<td><%= prediction.mahi20h ? (number_to_currency prediction.mahi20h) : "-"; %></td>
+					<td><%= prediction.mahi20l ? (number_to_currency prediction.mahi20l) : "-"; %></td>
 
 
+				</tr>
+			<% end %>
+
+
+		</tbody>
+
+	</table>
+
+	
+	<br />
+
+	<fieldset>
+	<legend>Average Market Predictions</legend>
+	</fieldset>
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" >Averages</th>
+			<th class="prediction_header" colspan="2">A+</th>
+			<th class="prediction_header"  colspan="2">A</th>
+			<th class="prediction_header"  colspan="2">A-</th>
+			<th class="prediction_header"  colspan="2">B++</th>
+			<th class="prediction_header"  colspan="2">2H</th>
+			<th class="prediction_header"  colspan="2">B</th>
+			<th class="prediction_header"  colspan="2">Swordfish 100+</th>
+			<th class="prediction_header"  colspan="2">Swordfish 70/99</th>
+			<th class="prediction_header"  colspan="2">Snapper 3/4-1</th>
+			<th class="prediction_header"  colspan="2">Snapper1-2</th>
+			<th class="prediction_header"  colspan="2">Snapper 2-4</th>
+			<th class="prediction_header"  colspan="2">Snapper 6+</th>
+			<th class="prediction_header"  colspan="2">B-liner 1-2</th>
+			<th class="prediction_header"  colspan="2">Lane 1-2</th>
+			<th class="prediction_header"  colspan="2">Lane 2-4</th>
+			<th class="prediction_header"  colspan="2">Mahi 10-15</th>
+			<th class="prediction_header"  colspan="2">Mahi 15-20</th>
+			<th class="prediction_header"  colspan="2">Mahi 20+</th>
+
+		</thead>
+		<thead class="hilo_row">
+			<th></th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+
+
+		</thead>
+
+		<tr class="footer">
+			<td></td>
+			<td><%= (number_to_currency @preport.predictions.average(:aplushigh) )%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:apluslow))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:ahigh))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:alow))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:aminushigh))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:aminuslow))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:bplusplushigh))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:bpluspluslow))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:twohhigh))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:twohlow))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:bhigh))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:blow))%></td>
+		
+			<td><%= (number_to_currency @preport.predictions.average(:sword100h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:sword100l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:sword7099h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:sword7099l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap34h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap34l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap12h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap12l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap24h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap24l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap6h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:snap6l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:bline12h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:bline12l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:lane12h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:lane12l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:lane24h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:lane24l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi1015h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi1015l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi1520h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi1520l))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi20h))%></td>
+			<td><%= (number_to_currency @preport.predictions.average(:mahi20l))%></td>
+		</tr>
+	</table>
+
+
+	<%= link_to "Print Prediction Report (PDF)", preport_path(@preport , :format=>"pdf"), :class=>"btn btn-blue" %>
+
+
+
+	<br />
+	<br />
+	<br />
+
+	<fieldset>
+	<legend>Market Notes</legend>
+	</fieldset>
+
+	<h1>
+
+			<% @pnotes.group_by(&:user).each do |user, pnotes| %>
+				<h1><%= user.full_name%></h1>
+			
+				<table class="stylized full">
+					<thead>
+						<th>Comments</th>
+					</thead>
+					<tbody>
+			 	<% for pnote in pnotes %>
+		
+			
+				<tr>
+					<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
+				
+				</tr>
+				<% end %>
+
+			<% end %>
+		</tbody>
+	</table>
+</div>
 <br />
 <br />
 <br />
